@@ -1,0 +1,67 @@
+<template>
+        <lightning-card title="Lead Details">
+                Lead Details {recordId}
+                <template if:true={lead.data}>
+    
+                        <div class="slds-m-around_medium">
+                                <p><img src={model}   width="100" height="30" class="car slds-align_absolute-center" alt="Car Picture" /></p>
+                            <p>{name}</p>
+                            <p>{title}</p>
+                            <p>{type}</p>
+                            <p>{prospect}</p>
+                          
+                            <p>{assingedLeadership}</p>
+            
+
+
+
+                           
+                            <p>{outcome}</p>
+                            <p>{consultantName}</p>
+                            
+                            <p>{prospect}</p>
+                         <!--  <p>{Mobile}</p>
+                            <p>{CUSTOMERID}</p>
+                            <p>{PREFERREDMETHOD}</p>
+                            <p>{PREFERREDMETHOD}</p>
+--> 
+                            <p>
+                                <lightning-formatted-phone value={phone}></lightning-formatted-phone>
+                            </p>
+                            <p>
+                                <lightning-formatted-email value={email}></lightning-formatted-email>
+                            </p>
+                        </div>
+                        <lightning-layout>
+                                <lightning-layout-item padding="horizontal-small">
+                                        <template if:true={picklistValuesStatus.data}>
+                               
+                                                <div class="slds-m-around_small">
+                                                       
+                                                                <lightning-combobox name="Status" 
+                                                                label="Status" value={status} placeholder="-Select-"
+                                                                options={picklistValuesStatus.data.values} onchange={handleChangeStatus}>
+                                                            </lightning-combobox>
+                                                      
+                                                    </div>    
+                                            </template>  
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="horizontal-small">
+                                        <template if:true={picklistValuesOutcome.data}>
+                                
+                                                <div class="slds-m-around_small">
+                                                        <lightning-combobox name="Outcome" 
+                                                        label="Outcome" value={outcome} placeholder="-Select-"
+                                                        options={picklistValuesOutcome.data.values} onchange={handleChangeOutcome}>
+                                                    </lightning-combobox>
+                                                </div>    
+                                            </template>
+                                 </lightning-layout-item>
+                              
+                        </lightning-layout>
+                    </template>
+                   
+                   
+                        
+        </lightning-card>
+    </template>

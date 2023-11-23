@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-m-around_medium">
+        Value From Child :  {msg}
+        <c-car-search-form onmycustomevent={handleCustomEvent}></c-car-search-form>  
+    </div>
+    <lightning-card title='Matching Cars'>
+        <c-car-search-result car-type-id={msg}></c-car-search-result>
+
+    </lightning-card>
+</template>

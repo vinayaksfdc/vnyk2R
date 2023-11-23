@@ -1,0 +1,74 @@
+<template>
+    
+       <div style="display:block; width:100%;">
+       
+            <div  class="slds-no-print" style="width:50%; float: left; display: inline-block;">
+                
+                <div class="slds-p-horizontal_medium slds-no-print">
+                     
+                    <lightning-combobox name="types" class="slds-no-print" label="Object" value={value} options={options} onchange={handleTypeChange}> </lightning-combobox> 
+                    
+                </div>
+            
+                <div class="slds-p-horizontal_medium slds-no-print">
+                    <lightning-dual-listbox name="languages" class="slds-no-print"
+                                    label="Select Fields"
+                                    source-label="Available"
+                                    selected-label="Selected"
+                                    field-level-help="Select Fields to display"
+                                    options={fieldAPIoptions}
+                                    onchange={handleChange}></lightning-dual-listbox>
+                    
+                
+                </div>
+                                      
+                <div class="slds-box slds-no-print" >
+                <p class="slds-no-print">Selected values are: {selected}</p>
+                </div>  
+                <lightning-button label="display Record" class="slds-no-print" onclick={onButtonClick}></lightning-button>
+               
+            </div>
+       
+        <div style="width:50%; float: left; display: inline-block;">
+      
+            <template if:true={displayTable}>
+                <lightning-card>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr class="slds-line-height_reset oos1">
+                                <template for:each={selected} for:item="fldLabel">
+                                    <th class="" scope="col" key={fldLabel}>
+                                        <div class="slds-truncate" title={fldLabel}>{fldLabel}</div>
+                                    </th>
+                                </template>
+                            </tr>  
+                        </thead>
+                        <tbody>
+                            <template for:each={records} for:item="record" >
+                                <tr class="slds-hint-parent ooss4" key={record.Id} >
+                                    <template for:each={record} for:item="rec">
+                                        <td class="" scope="col" key={rec.key}>
+                                            <div class="slds-truncate" title={rec.key}>{rec.value}</div>
+                                        </td>  
+                                    </template>  
+                            </tr>
+                            </template>
+                        </tbody>
+                    </table>                                            
+                </lightning-card> 
+            </template>
+            <!--   </lightning-input-rich-text> -->
+        </div>
+    </div>
+
+ 
+    
+  <p class="slds-no-print"> 
+     <lightning-button
+    label="Download PDF" class="slds-no-print"
+    onclick={handlePDF}
+  ></lightning-button> </p>
+
+ 
+  
+</template>

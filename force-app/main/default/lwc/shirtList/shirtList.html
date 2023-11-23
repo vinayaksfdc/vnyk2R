@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title='List of Shirts'>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <h2>List of Shirts</h2>
+                <lightning-layout multiple-rows>
+                  <template for:each={res} for:item="r">                    
+                      <lightning-layout-item size="8" large-device-size="4" padding="around-small" key={r.Id}>
+                          <div class="custom-box slds-box slds-p-around_medium slds-text-align_center lgc-bg">
+                              <a data-value={r.Id}  class="slds-text-link_reset lgc-bg" onclick={handleClick}>
+                                  <img src={r.Picture_URL__c} width="100" height="100">
+                              </a>
+                          </div>    
+                      </lightning-layout-item>
+                  </template>
+              </lightning-layout>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+              <span> selectedshirts </span>
+              Deleted ID is ---- {selectedAccountId}
+                <template for:each={slctshrts} for:item="r">
+               <!-- {r}-->
+                    <div key={r}>
+                        <c-shirt-list-item recordid={r} onaccountselection={onAccountSelection}></c-shirt-list-item>
+                    </div>
+                </template>
+            </div>
+            
+          </div>
+    </lightning-card>
+</template>

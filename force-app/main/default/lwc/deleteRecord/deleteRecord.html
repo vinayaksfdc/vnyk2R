@@ -1,0 +1,21 @@
+<template>
+    <lightning-layout>
+        <div class="flex-container">
+            <template for:each={lstOppotunities} for:item="opp">
+                <lightning-layout-item size="4" padding="around-small" key={opp.Id}>
+                    <lightning-card  title={opp.Name}>
+                        <p class="slds-p-horizontal_small">Stage: {opp.StageName}</p>
+                        <p class="slds-p-horizontal_small">Amount: 
+                            <lightning-formatted-number value={opp.Amount} format-style="currency" currency-code="USD">
+                            </lightning-formatted-number></p>
+                        </p>
+                        <p slot="footer">
+                            <lightning-button label="Delete" variant="destructive" slot="actions"
+                                value={opp.Id} onclick={deleteOpportunity}></lightning-button>
+                        </p>
+                    </lightning-card>
+                </lightning-layout-item>
+            </template>
+        </div>
+    </lightning-layout>
+</template>

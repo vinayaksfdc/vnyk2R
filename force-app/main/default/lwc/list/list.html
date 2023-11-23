@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Car Lists">
+        <header class="slds-text-align_center slds-text-heading_small">Drag a car tile</header>
+           <lightning-layout multiple-rows horizontal-align="center">
+                <template for:each={cars} for:item="car">
+                        <lightning-layout-item key={car.Id} padding="around-small" size="12" small-device-size="6"
+                            large-device-size="3" medium-device-size="3">
+                            <!--  {car.Name}           -->
+                             <a href="#"    onclick={buttonClick}>buttonClick</a>
+                            <c-tile car={car} 
+                                    key={car.Id}
+                                    draggable={tilesAreDraggable}
+                                    oncarselect={carSelectHandler}
+                                    class="slds-m-around_x-small"
+                                     ></c-tile>
+             
+                        </lightning-layout-item>
+                    </template>       
+            </lightning-layout>
+    </lightning-card>           
+</template>

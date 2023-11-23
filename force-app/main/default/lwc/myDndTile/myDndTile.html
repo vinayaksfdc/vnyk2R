@@ -1,0 +1,20 @@
+<template>
+            <div class="content">
+                <div
+                class="drop-zone slds-drop-zone slds-p-around_x-small slds-align_absolute-center"
+                style="height: 380px;"
+                ondrop={handleDrop}
+                ondragover={handleDragOver}
+                >
+                    <template if:true={areDetailsVisible}> 
+                                 
+                        <div>
+                            <p class="title slds-align_absolute-center">
+                                {carDrag.Name}
+                               
+                            </p>
+                        </div>
+                    </template>    
+                </div>        
+            </div>
+    </template>

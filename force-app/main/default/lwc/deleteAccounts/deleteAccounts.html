@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="Delete Records without server-side script" icon-name="utility:user">
+        <template if:true={accounts}>
+            <div class="slds-var-m-around_medium">
+             <!--    <template for:each={accounts} for:item="acc">
+                    <lightning-layout key={acc.Id} class="slds-var-m-vertical_x-small">
+                        <lightning-layout-item flexibility="grow" style="min-width:350px" >
+                            {acc.Name}
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="grow">
+                            <lightning-button-icon icon-name="utility:delete" onclick={deleteAccount} data-recordid={acc.Id}>
+
+                            </lightning-button-icon>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                   
+                </template> -->
+                 <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="S.No">S.NO</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Industry">Account Industry</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Phone">Account Phone</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Action">Action</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accounts} for:item="account" for:index="index">
+
+                <tr key={keyIndex}>
+                    <td>{index}</td>
+                    <td>
+                        {account.Name}
+                    </td>
+                    <td>
+                        {account.Industry}
+                    </td>
+                    <td>
+                       {account.Phone}
+                    </td>
+                    <td>
+                     <lightning-button-icon
+                    icon-name="utility:delete"
+                    value={account.Id}
+                    onclick={deleteAccount}
+                    data-recordid={account.Id}
+                     ></lightning-button-icon>        
+
+                    </td>
+                </tr>
+
+            </template>
+        </tbody>
+    </table>     
+
+            </div>
+        </template>
+    </lightning-card>
+</template>

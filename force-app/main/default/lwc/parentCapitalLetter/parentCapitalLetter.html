@@ -1,0 +1,14 @@
+<template>
+  <lightning-card>
+
+    <p>my name is {fullName}</p>
+    <div class="slds-p-around_small">
+    <c-child-Capital-letter colors={coloring} title="childComponent"></c-child-Capital-letter>
+    <lightning-input name="fullName" onchange={handleChange}></lightning-input>
+  <lightning-button
+    label="Invoke child method" 
+    onclick={handleInvokeChildMethod}
+  ></lightning-button>
+</div>
+</lightning-card>
+</template>

@@ -1,0 +1,34 @@
+<template>
+   <!--  <lightning-tab> </lightning-tab>
+     <lightning-tab> <c-sublwc></c-sublwc> <c-publwc></c-publwc></lightning-tab> -->
+   <!--   <template>    --> 
+    <lightning-card title="Lightning Tab Navigation With Buttons (lwcFactory.com)">
+        <!--Group Of lightning Tab Set-->
+<!--     <lightning-tabset active-tab-value={activeTab}>
+         <div class="slds-m-around_x-small">
+                 <lightning-tab label="Publisher LWC"    >
+              <c-publwc></c-publwc>       
+            </lightning-tab>
+           
+            <lightning-tab label="Subscriber Lwc"   >
+               
+            </lightning-tab>
+        </div>
+    </lightning-tabset> -->
+     <lightning-tabset>
+        <lightning-tab label="Publisher">
+             <c-publwc></c-publwc>       
+        </lightning-tab>
+        <lightning-tab label="Subcriber" title="2nd tab extended title">
+            <c-sublwc></c-sublwc>
+        </lightning-tab>
+        <lightning-tab label="Item Three">
+            Three Content !
+        </lightning-tab>
+    </lightning-tabset>
+   
+</lightning-card>
+</template>
+  
+   
+</template>

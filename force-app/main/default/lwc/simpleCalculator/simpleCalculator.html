@@ -1,0 +1,28 @@
+<template>
+    <lightning-input value={firstnumber} name="fnumber" label="First Number" onchange={firsthandleChanges}></lightning-input>
+    
+    <lightning-input value={secondnumber} name="snumber" label="Second Number" onchange={secondhandleChanges}></lightning-input>
+    
+                        {currentResult}
+
+                        <lightning-input type="checkbox" label="Show details" onchange={handleChange}></lightning-input>    
+                        <template if:true={areDetailsVisible}>
+                            <div class="slds-m-vertical_medium">
+                                <template for:each={dataArray} for:item="contact">
+                                    <li key={contact}>
+                                        {contact}
+                                    </li>
+                                </template>
+                            </div>
+                        </template>
+            
+                       
+            
+    <lightning-button-group>
+        <lightning-button label="add" onclick={addhandleClick}></lightning-button>
+        <lightning-button label="sub" onclick={subhandleClick}></lightning-button>
+        <lightning-button label="mul" onclick={mulhandleClick}></lightning-button>
+        <lightning-button label="div" onclick={divhandleClick}></lightning-button>
+    </lightning-button-group>
+    
+</template>

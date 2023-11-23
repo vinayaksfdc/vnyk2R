@@ -1,0 +1,25 @@
+<template>
+    <div>
+    The fruit name is : {fruit}
+    </div>
+
+    <template if:true={condition0}>
+        <div id={uniqueId}>
+            <div class="slds-class">
+                <span class="slds-avatar slds-avatar_large">
+                    <template if:true={condition1}>
+                        <span style="font-size:32px;">
+                            <i class={icon} lwc:dom="manual"></i>
+                        </span>
+                    </template>
+                    <template if:true={condition2}>
+                        <lightning-icon class="sf-icon-class" icon-name={icon} size="medium">
+                        </lightning-icon>
+                    </template>
+                </span>
+            </div>
+        </div>
+    </template>
+
+    
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Decorate a Function with @wire" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template if:true={contacts}>
+                <template for:each={contacts} for:item="contact">
+                   <!--<p key={contact.Id}>{contact.Name}</p> --> 
+                    <c-parent-example key={contact.Id} 
+                    obj-contact-data={contact} onfeedback={handleNewFeedback}>
+                    </c-parent-example>
+                </template>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+        </div>
+    </lightning-card>
+</template>

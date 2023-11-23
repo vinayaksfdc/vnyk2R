@@ -1,0 +1,54 @@
+<template>
+
+ 
+ <lightning-input type="text" name="foo" label="Foo"></lightning-input>
+  <lightning-button onclick={fo1o} label='fo1o'></lightning-button>
+
+
+    <lightning-button variant="brand" label="class 1" title="Primary action" onclick={handleClick1}
+        class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="class 2" title="Primary action" onclick={handleClick2}
+        class="slds-m-left_x-small"></lightning-button>
+         <lightning-button variant="brand" label="class 3" title="Primary action" onclick={handleclick3}
+        class="slds-m-left_x-small"></lightning-button>
+     <div data-id="divblock" class="navBar">
+     
+    <lightning-record-edit-form object-api-name="Account"
+                           record-id={recordId}
+                           onsuccess={handleSuccess}
+                           onerror={handleError}>
+     <lightning-layout multiple-rows>
+       <lightning-layout-item size="6" title='Name'>
+         <lightning-input-field field-name="Name"></lightning-input-field>
+       </lightning-layout-item>
+       <lightning-layout-item size="6" title='Phone'>
+         <lightning-input-field field-name="Phone"></lightning-input-field>
+       </lightning-layout-item>
+       <lightning-layout-item size="6" title='Industry'>
+         <lightning-input-field name={Industry} data-id="overview"   value={industry}         onchange={handleFieldChange}  field-name="Industry"></lightning-input-field>
+       </lightning-layout-item>
+       <lightning-layout-item size="6" title='Rating'>
+         <lightning-input-field field-name="Rating"></lightning-input-field>
+       </lightning-layout-item>
+       <lightning-layout-item size="12" title='ParentId'>
+         <lightning-input-field field-name="ParentId"></lightning-input-field>
+       </lightning-layout-item>
+       <lightning-layout-item size="12" title='Button'>
+         <div class="slds-m-top_large slds-grid slds-grid_align-center">
+           <lightning-button variant="neutral"
+                             label="Cancel"
+                             title="Cancel"
+                             type="text"
+                             onclick={handleCancel}
+                             class="slds-m-right_small"></lightning-button>
+           <lightning-button variant="brand"
+                             label="Submit"
+                             title="Submit"
+                             type="submit"></lightning-button>
+         </div>
+       </lightning-layout-item>
+     </lightning-layout>
+ </lightning-record-edit-form>
+     
+     </div>
+</template>

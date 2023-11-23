@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Showing error From Apex">
+    <lightning-button label="Get Contacts" onclick={handleGetContacts}></lightning-button>
+     
+    <template if:true={error}>
+        <c-error-panel errors={error}></c-error-panel>
+    </template>
+</lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title = "Search Accounts" icon-name = "custom:custom63">  
+      
+        <div class = "slds-m-around_medium">  
+            <img src="https://kat2k-dev-ed--c.visualforce.com/resource/1580135498000/f?" alt="image alternate text" style="height:240px; width:320px;" border="0"/>
+  
+            <template if:true = {accounts}>  
+                  
+                <div style="height: 300px;">  
+  
+                    <lightning-datatable key-field="id"  
+                                         data={accounts}  
+                                         columns={columns}  
+                                         hide-checkbox-column="true"  
+                                         show-row-number-column="true"  
+                                         onrowaction={callRowAction}>  
+                    </lightning-datatable>  
+  
+                </div>                   
+      
+            </template>  
+      
+            <template if:true = {error}>  
+  
+                {error}>  
+                  
+            </template>  
+  
+        </div>  
+  
+    </lightning-card>  
+  <!-- <c-lead-card my-name={parentValue}></c-lead-card> -->   
+</template>

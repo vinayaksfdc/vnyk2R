@@ -1,0 +1,96 @@
+<template>
+    <lightning-card title = "Search Accounts" icon-name = "custom:custom63">  
+
+        <div>
+                {recordid}
+
+        </div>
+        <lightning-card title="Custom Data table in Lightning Web Components">
+                
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Type">Type</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Prospect Name">Prospect Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Status">Status</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Assigned Delarship">Assigned Delarship</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Outcome">Outcome</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Consultant Name">Consultant Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Model">Model</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={accounts} for:item="con">
+                            <tr key={con.Id}>
+                            
+                                <th scope="col">
+                                    <div>{con.Type__c}</div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-formatted-email value={con.Prospect__r.Name}></lightning-formatted-email>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-formatted-email value={con.Status__c}></lightning-formatted-email>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-formatted-email value={con.Assigned_To_Dealership__c}></lightning-formatted-email>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-formatted-email value={con.Outcome__c}></lightning-formatted-email>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <lightning-formatted-email value={con.Consultant__r.Name}></lightning-formatted-email>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div >
+                                        <a onclick={handleClick} data-target-id={con.Id}>
+                                            <img src={con.Model__c} class="car slds-align_absolute-center" alt="Car Picture" />
+                                        </a>
+                                    </div>    
+                                </th>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+        </lightning-card>
+    </lightning-card>  
+
+    Record Id is {recordid}
+  <!-- <c-lead-card my-name={parentValue}></c-lead-card> -->  
+  <!--
+
+    <lightning-card title="Publisher Component">
+        <lightning-layout>
+            <lightning-layout-item>
+                <button onclick={displayLabradorDetails}>Labrador</button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+  -->
+  
+</template>

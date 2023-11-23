@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title='Passing Parent to Child Event'>
+   
+        <c-child my-name={parentValue}></c-child>
+
+            <div><lightning-button onclick={handleClick} label="fireEvent"></lightning-button></div> 
+    </lightning-card>
+</template>

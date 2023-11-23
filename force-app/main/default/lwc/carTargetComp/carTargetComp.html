@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Car Card">
+        <lightning-layout>
+               <!--{details}--> 
+
+            <div
+            class="drop-zone slds-p-around_x-small"
+            ondrop={handleDrop}
+            ondragover={handleDragOver}>
+            </div>
+
+         <!--
+            <lightning-layout-item>
+               <template if:true={areDetailsVisible}>
+                    <img src={car.Picture__c} class="car slds-align_absolute-center" alt="Car Picture" >
+                        <div>
+                            <p class="title slds-align_absolute-center">
+                                {car.SNo}
+                                <lightning-badge label={car.carId}></lightning-badge>
+                                <lightning-badge label={car.Make__c}></lightning-badge>
+                            </p>
+                        </div>
+                 </template>                    
+            </lightning-layout-item>
+        -->   
+            
+        </lightning-layout>
+    </lightning-card>
+</template>

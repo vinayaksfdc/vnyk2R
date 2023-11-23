@@ -1,0 +1,40 @@
+<template>
+       <lightning-card title="Fetch Campaign Records" icon-name="custom:custom14">
+              <ul class="slds-m-around_medium">
+                     <template for:each={Campaigns} for:item="contact" for:index="index">
+                            <li key={contact.Id}>
+                        
+                                   <lightning-button-icon  class="icnleft slds-float_right" onclick={handleIconClick} data-id={contact.Id}
+                                   icon-name="utility:close"  size="medium"  variant="bare"   
+                                   slot="actions"></lightning-button-icon>             
+                              <!-- tile component starting -->
+                                   <div class="slds-m-top_medium slds-m-bottom_x-large" onclick={meetingRoomInfoHandler}>
+                                          
+                                          
+
+                                                 <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                                                 
+                                                          EditRecord                 <br/>  <a onclick={handleClickEdit} data-id={contact.Id}>{contact.Name}</a>  
+                                                 </h2>
+                                                 <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                                                        ViewRecord       <br/>       
+                                                         <a onclick={navigateToRecordViewPage} data-id={contact.Id}>{contact.Name}</a>  
+                                                               </h2>
+                                   
+                                          
+                                          </div>
+                             
+                                        
+                            </li>
+                     </template>
+              </ul>
+       </lightning-card>
+</template>
+        <!--  <lightning-button-icon  icon-name="utility:close" data-recordid={contact.Id}  variant="border-filled" onclick={closecard} slot="actions"></lightning-button-icon>
+                           
+                            <lightning-icon icon-name="action:delete"  
+                            
+                            data-id={contact.Id}
+                   access-key={index} id={index} alternative-text="Click to Call" size="small" title="large size" onclick={closecard}>
+                            </lightning-icon>
+                              -->

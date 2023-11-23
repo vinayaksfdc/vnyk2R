@@ -1,0 +1,51 @@
+<template>
+    {selectedAccountId}
+    <lightning-layout multiple-rows>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                      
+                        <lightning-layout-item>
+                            <div>
+                                <c-record-field object-api-name="User" field-name="Name" field-api-name="Name"
+                        field-type="lookup" search-fields="Name" advance-search-config={countryConfig} title-field="Name"     order-by="Name"  sort-ascending
+                        icon-name="standard:user"></c-record-field>
+                            </div>
+                
+                        </lightning-layout-item>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                       
+                        <lightning-layout-item>
+                            <div>
+                                <lightning-button  class="slds-form-element" label="Close" variant="brand" onclick={loadData}></lightning-button>
+                            </div>
+                        </lightning-layout-item>
+                    </div>
+                </lightning-layout-item>
+                 
+                
+            </lightning-layout>
+        </div>
+        
+       
+
+        <lightning-layout-item>
+            <div style="height:500px">
+                <lightning-datatable key-field="Id" enable-infinite-loading  data={accounts} columns={columns}  
+                    onloadmore={loadMoreData} hide-checkbox-column="true" show-row-number-column="true">
+                </lightning-datatable>
+            </div>
+
+        </lightning-layout-item>
+
+
+
+    </lightning-layout>
+
+
+
+</template>

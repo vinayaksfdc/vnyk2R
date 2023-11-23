@@ -1,0 +1,43 @@
+<template>
+    <!-- Invoke a Screen flow in LWC -->
+    <lightning-flow
+        flow-api-name={flowApiName}
+        flow-input-variables={flowInputVariables}
+        onstatuschange={handleFlowStatusChange}
+    >
+    </lightning-flow>
+</template>
+
+<!-- <template>
+    <lightning-card
+        variant="Narrow"
+        title="Flow in Lwc"
+        icon-name="standard:account"
+    >
+
+        RecordId________________ : {recordId}
+        <div class="slds-var-p-horizontal_small">
+
+           
+            <lightning-combobox
+                name="objectType"
+                label="Select Object To Run Flow"
+                value={flowApiName}
+                placeholder="Select Object"
+                options={options}
+                onchange={handleChangeFlow}
+            ></lightning-combobox>
+
+         
+            <lightning-flow
+                if:true={showFlow}
+                flow-api-name={flowApiName}
+                flow-input-variables={flowInputVariables}
+                onstatuschange={handleFlowStatusChange}
+            >
+            </lightning-flow>
+        </div>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+
+</template> -->

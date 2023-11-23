@@ -1,0 +1,97 @@
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+    width:70%;
+}
+.ht{
+    height:auto;
+}
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+.slds-truncate
+{
+    width: 400px;
+}
+
+.lgc-bg {
+    display: block;
+    border: 0px solid rgb(101, 153, 205);
+}
+.icnleft{
+    position:right;
+    text-align: right;
+}
+
+.lgc-bg:hover{
+    background: #FFFFFF;
+    border: 1px solid #0090da;
+    border-left: 5px solid #0090da;
+    -webkit-box-shadow: 0px 0px 0px 6px rgba(0,145,218,0.15);
+    -moz-box-shadow: 0px 0px 0px 6px rgba(0,145,218,0.15);
+    box-shadow: 0px 0px 0px 6px rgba(0,145,218,0.15);
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    padding: 2rem;
+    padding-top: 0rem;
+}
+.slds-text-heading_medium {
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+    }
+ 
+.toDohead{
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: #101820;
+ 
+}
+ 
+.slds-tile__detail
+{
+    padding-top: 15px;
+}
+ 
+.tile{
+    height:40px;
+    width:100px;
+    border-style: inset;
+}
+.lgc-bg{
+    background: #FFFFFF;
+    border: 0px solid rgba(0,0,0,0.08);
+    border-left: 5px solid rgba(0,0,0,0.08);
+    -webkit-box-shadow: 0px 0px 0px 6px rgba(0,0,0,0.08);
+    -moz-box-shadow: 0px 0px 0px 6px rgba(0,0,0,0.08);
+    box-shadow: 0px 0px 0px 6px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+   
+    padding: 0 2rem 2rem;
+    padding-top: 0rem;
+    
+    
+    
+}
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+  }
+
+lightning-card.main-card::after article.slds-card{
+    border-color: red;
+    border:12px solid;
+}

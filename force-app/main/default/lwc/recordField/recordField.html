@@ -1,0 +1,83 @@
+<!--
+  @File Name          : recordField.html
+  @Description        : 
+  @Author             : Sasank Subrahmanyam V
+  @Group              : 
+  @Last Modified By   : Swapnil Saurav
+  @Last Modified On   : 6/17/2020, 4:06:04 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/23/2020   Sasank Subrahmanyam V     Initial Version
+  2.0    6/17/2020   Swapnil Saurav            R7 Release: Added subtitle-field for lookup.js
+-->
+<template>
+
+    <template if:true={inputType}>
+        <div class={inputContainerClass}>
+            <label class="slds-form-element__label">
+                <abbr if:true={required} class="slds-required" title="required">* </abbr>{label}
+            </label>
+            <template if:true={textFieldType}>
+                <lightning-input label={label}
+                                 variant="label-hidden"
+                                 value={value}
+                                 checked={value}
+                                 placeholder={placeholder}
+                                 type={fieldType}
+                                 onchange={handleChange}
+                                 disabled={disableInput}>
+                </lightning-input>
+            </template>
+            <template if:true={lookupFieldType}>
+                <c-lookup object-api-name={objectApiName}
+                          search-fields={searchFields}
+                          title-field={titleField}
+                          filters={filters}
+                          order-by={orderBy}
+                          sort-ascending={sortAscending}
+                          icon-name={iconName}
+                          errors={errors}
+                          advance-search-config={advanceSearchConfig}
+                          selection={lookupDefaultSelection}
+                          query-type={queryType}
+                          placeholder={placeholder}
+                          value={value}
+                          error-message={errorMessage}
+                          onselectionchange={handleChange}
+                          disabled={disableInput}
+                          subtitle-field={subtitleField}
+                          onadvancesearchopened={handleAdvanceSearchOpened}>
+                </c-lookup>
+            </template>
+            <template if:true={picklistFieldType}>
+                <lightning-combobox name={label}
+                                    variant="label-hidden"
+                                    label={label}
+                                    value={value}
+                                    placeholder={placeholder}
+                                    options={picklistOptions}
+                                    onchange={handleChange}
+                                    disabled={disableInput}>
+                </lightning-combobox>
+            </template>
+            <template if:true={richtextFieldType}>
+                <lightning-input-rich-text value={value}
+                                           placeholder={placeholder}
+                                           onchange={handleChange}
+                                           disabled={disableInput}>
+                </lightning-input-rich-text>
+            </template>
+            <template if:true={textareaFieldType}>
+                <lightning-textarea label={label}
+                                    variant="label-hidden"
+                                    value={value}
+                                    placeholder={placeholder}
+                                    onchange={handleChange}
+                                    disabled={disableInput}>
+                </lightning-textarea>
+            </template>
+            <div if:true={errorMessage} class="slds-form-element__help">{errorMessage}</div>
+        </div>
+    </template>
+
+</template>

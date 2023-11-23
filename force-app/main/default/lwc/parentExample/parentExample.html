@@ -1,0 +1,10 @@
+<template>
+    <div for:each={myContactData} for:item="contactData" key={contactData.Id}>
+        {isContactAvailable}
+        <p>Name : contactData.Name</p>
+        <p onclick={showFeedbacks}>Feedback Count : contactData.FirstName</p>
+        <div if:true={showFeeback}>
+            <c-grand-child-example contact-id={contactData.Id}></c-grand-child-example>
+        </div>
+    </div>
+</template>

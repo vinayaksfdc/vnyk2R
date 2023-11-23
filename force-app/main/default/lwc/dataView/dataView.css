@@ -1,0 +1,8 @@
+.slds-tabs_default__content {
+    display: none;
+}
+
+.dv-predefined-filter-label {
+    white-space: nowrap;
+    cursor: pointer;
+}

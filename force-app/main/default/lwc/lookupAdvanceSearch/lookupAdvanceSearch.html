@@ -1,0 +1,47 @@
+<!--
+  @File Name          : lookupAdvanceSearch.html
+  @Description        : 
+  @Author             : Sasank Subrahmanyam V
+  @Group              : 
+  @Last Modified By   : vinay.mekal@non.se.com
+  @Last Modified On   : 09-02-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/23/2020   Sasank Subrahmanyam V     Initial Version
+-->
+<template>
+
+    <template if:true={showAdvanceSearch}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class={modalClass}>
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <a onclick={close} class="slds-modal__close">
+                        <lightning-icon variant="inverse"
+                                        icon-name="utility:close"
+                                        size="x-small"
+                                        alternative-text="close">
+                        </lightning-icon>
+                    </a>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{config.mainHeading}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div onkeypress={handleKeypress}>
+                        <lightning-input label="Search"
+                                         type="search"
+                                         value={searchText}>
+                        </lightning-input>
+                    </div>
+                    <c-data-view config={config}
+                                 additional-conditions={searchCondition}>
+                    </c-data-view>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Cancel" onclick={close}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

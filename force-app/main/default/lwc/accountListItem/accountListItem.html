@@ -1,0 +1,53 @@
+<template>
+   <!--  <template for:each={accounts} for:item="account">
+                    <p key={account.Id}>{account.Name}</p>
+                </template>   -->
+                 <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="S.No">S.NO</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Industry">Account Industry</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Phone">Account Phone</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Action">Action</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accounts} for:item="account" for:index="index">
+
+                <tr key={keyIndex}>
+                    <td>{index}</td>
+                    <td>
+                        {account.Name}
+                    </td>
+                    <td>
+                        {account.Industry}
+                    </td>
+                    <td>
+                       {account.Phone}
+                    </td>
+                    <td>
+                     <lightning-button-icon
+                    icon-name="utility:delete"
+                    value={account.Id}
+                    onclick={deleteAccount}
+                    data-recordid={account.Id}
+                     ></lightning-button-icon>        
+
+                    </td>
+                </tr>
+
+            </template>
+        </tbody>
+    </table>     
+</template>

@@ -1,0 +1,41 @@
+<template>
+        <p>This example creates a three column page layout with a container-wide header using nested <code>lightning-layout</code> components. A <code>lightning-layout-item</code> of size="12" wraps the <code>lightning-layout</code> that contains multiple layout items.</p>
+    <div class="c-container">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small"  size="12">
+                    <div class="page-section page-header">
+                        <h2>Header</h2>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" size="3">
+                            <div class="page-section page-right page-height">
+                                <h2>Contact Details</h2>
+                                <c-customer-details></c-customer-details>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="6">
+                                <lightning-layout-item  size="6">
+                                        <div class="page-section page-main dtwidth">
+                                                <h2>Custom Datatble</h2>
+                                                <c-custom-data-table-component></c-custom-data-table-component>
+                                            </div>   
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="around-small" size="6">
+                                        <div class="page-section page-right lddtwidth">
+                                                <h2>Lead Details</h2>
+                                               <c-lead-Detail></c-lead-Detail>
+                                            </div>
+                                </lightning-layout-item>
+                       </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" size="12">
+                    <div class="page-footer page-section">
+                        <h2>Footer</h2>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+</template>

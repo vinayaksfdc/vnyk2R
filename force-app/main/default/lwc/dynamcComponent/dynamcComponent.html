@@ -1,0 +1,26 @@
+<template>
+  <lightning-card title="getPicklistValues Demo">
+      <div class="slds-m-around_medium">
+          <template if:true={IndustryPicklistValues.data}>
+              <lightning-combobox name="Industry" label="Industry" value={picklistvalue} placeholder="select"
+                  options={IndustryPicklistValues.data.values} onchange={handleChange}>
+              </lightning-combobox>
+          </template>
+      </div>
+  </lightning-card>
+
+  <lightning-card title="WireGetPicklistValues" icon-name="custom:custom67">
+    <template if:true={IndustryPicklistValues.data}>
+      <lightning-progress-indicator current-step={value} type="path" variant="base" >
+        <template for:each={IndustryPicklistValues.data.values} for:item="step">
+          <lightning-progress-step label={step.label} value={step.value} key={step.label}></lightning-progress-step>
+        </template>
+      </lightning-progress-indicator> 
+         
+    </template>
+ 
+    
+    </lightning-card>
+
+
+</template>

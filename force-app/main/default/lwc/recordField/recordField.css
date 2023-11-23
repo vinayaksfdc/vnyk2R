@@ -1,0 +1,9 @@
+.field-has-error_border {
+    /* border: 0.1rem solid;
+    border-radius: 5px;
+    border-color: var(--lwc-colorBorderError); */
+}
+
+.field-has-error_text {
+    /* color: var(--lwc-colorBorderError); */
+}

@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Parent-Child Component Composition">
+        <div class="slds-m-around_medium">
+            <lightning-button variant="brand" label="Get List" title="Get List of Cities" onclick={getCityList}
+                class="slds-m-left_x-small"></lightning-button>
+            <h1>This is Parent Component</h1>
+            <div class="slds-box slds-box_xx-small">
+                <lightning-layout multiple-rows="true">
+                    <template for:each={cityList} for:item="city">
+                        <lightning-layout-item key={city.city} size="12">
+                            <c-hello-child-component city={city.city} open={city.open}>
+                            </c-hello-child-component>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </div>
+        </div>
+    </lightning-card>
+</template>

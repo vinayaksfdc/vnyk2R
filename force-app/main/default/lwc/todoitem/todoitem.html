@@ -1,0 +1,14 @@
+<template>
+    <div>CHILD</div>
+  
+    <lightning-card title="CHILD" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={getIdFromParent} for:item="contact">
+                <li key={contact.Id}>
+                    {contact.Name}, {contact.Title}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+  
+</template>

@@ -1,0 +1,52 @@
+<template>
+    <lightning-card
+        title="RecordEditFormDynamicAccount"
+        icon-name="standard:Account"
+    >
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form
+                object-api-name={objectApiName}
+                record-id={recordId} onsuccess={handleSuccess} onsubmit ={handleSubmit}
+            >
+                <lightning-messages></lightning-messages>
+                <lightning-layout>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9"
+                    padding="around-small">
+                    <lightning-input-field field-name="ParentId" variant="label-stacked" required>
+                    </lightning-input-field>
+                    </lightning-layout-item> <br/>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9"
+                    padding="around-small">
+                    <lightning-input-field field-name="Name" variant="label-stacked" required>
+                    </lightning-input-field>
+                    </lightning-layout-item><br/>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9"
+                    padding="around-small">
+                    <lightning-input-field field-name="Phone" variant="label-stacked" required>
+                    </lightning-input-field>
+                    </lightning-layout-item><br/>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9"
+                    padding="around-small">
+                    <lightning-input-field field-name="Industry" variant="label-stacked" required>
+                    </lightning-input-field>
+                    </lightning-layout-item><br/>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9"
+                    padding="around-small">
+                    <lightning-input-field field-name="Rating" variant="label-stacked" required>
+                    </lightning-input-field>
+                    </lightning-layout-item><br/>
+                    <div class="slds-m-top_medium">
+                        <lightning-button
+                            variant="brand"
+                            type="submit"
+                            name="save"
+                            label="Save"
+                        ></lightning-button>
+                    </div>
+            </lightning-layout>
+            </lightning-record-edit-form>
+        </div>
+
+ 
+    </lightning-card>
+</template>

@@ -1,0 +1,58 @@
+<template>
+    updated values
+    <lightning-card title="BikeList" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium lgc-bg" >
+            <lightning-layout multiple-rows="true" pull-to-boundary="small">  
+                <template for:each={bikelist} for:item="bike">
+                        <lightning-card key={bike.Name} title="BikeList" class="bike-tile">
+
+                      
+                    <li key={bike.Name}>
+                            <div class="slds-var-p-horizontal_small bike-tile-body">
+                                    <div class="slds-media">
+                                        <div class="slds-media__figure">
+                                            <img src={bike.Picture_URL__c} alt="Bike Info" class="bike-img"/>
+                                        </div>
+                                        <div class="slds-media__body">
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Name} 						</p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Description__c}	        </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Product_Family__c}         </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.MSRP__c}                   </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Level__c}                  </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Level__c}                  </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Category__c}               </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Material__c}               </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Picture_URL__c}            </p>
+                                                <p class="slds-var-m-bottom_xx-small"> {bike.Battery__c}                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </lightning-card>   
+                </template>
+            </lightning-layout>    
+            </ul>
+        </lightning-card>
+</template>
+
+
+    <!--
+
+        <template>
+	<lightning-card title={bear.Name} class="bear-tile">
+		<div class="slds-var-p-horizontal_small bear-tile-body">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<img src={appResources.bearSilhouette} alt="Bear profile" class="bear-silhouette"/>
+				</div>
+				<div class="slds-media__body">
+					<p class="slds-var-m-bottom_xx-small">{bear.Sex__c}</p>
+					<p class="slds-var-m-bottom_xx-small">{bear.Age__c} years old</p>
+					<p class="slds-var-m-bottom_xx-small">{bear.Height__c} cm</p>
+					<p class="slds-var-m-bottom_xx-small">{bear.Weight__c} Kg</p>
+				</div>
+			</div>
+		</div>
+	</lightning-card>
+</template>
+    -->

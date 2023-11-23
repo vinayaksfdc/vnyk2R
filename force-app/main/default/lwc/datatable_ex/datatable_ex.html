@@ -1,0 +1,26 @@
+<template>
+ 
+    <lightning-card>
+    <div>
+        <template if:true={lds.data}>
+                <template for:each={lds.data} for:item="a">
+
+                    <p key={a.Id}>
+                        
+                            <img
+                            src={a.Model__c} 
+                            class="product"
+                            alt="Product picture"
+                            height='100'
+                            width='100'
+                    />
+
+                        </p>
+                </template>
+                   
+        </template>
+
+    </div>
+
+    </lightning-card>
+</template>

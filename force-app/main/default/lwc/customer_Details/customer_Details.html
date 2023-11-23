@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Customer Component">
+        <lightning-layout>
+            <lightning-layout-item>
+                {recordId}
+            </lightning-layout-item>
+            <div class="slds-m-bottom_medium">
+                    <lightning-card title="getRecord Demo" icon-name="standard:user">
+                        <div class="slds-m-around_medium">
+                            <p>Account Name : {result.Name}</p>
+                            <p>Customer ID : {result.Customer_Id__c}</p>
+                            <p>Mobile No : {result.Mobile__c}</p>
+                            <p>Email : {result.Email__c}</p>
+                            <p>Preferred Contact: {result.preferred_Contact__c}</p>
+                        </div>
+                    </lightning-card>
+                </div>
+                <div class="slds-m-bottom_medium">
+                    <lightning-card title="getRecord Demo with getFieldValue and getFieldDisplayValue adapter" icon-name="standard:user">
+                            <div class="slds-m-around_medium">
+                                    <p>Account Name : {result.Name}</p>
+                                    <p>Customer ID : {result.Customer_Id__c}</p>
+                                    <p>Mobile No : {result.Mobile__c}</p>
+                                    <p>Email : {result.Email__c}</p>
+                                    <p>Preferred Contact: {result.preferred_Contact__c}</p>
+                            </div>
+                    </lightning-card>
+                </div>
+        </lightning-layout>
+    </lightning-card>
+</template>

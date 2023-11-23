@@ -1,0 +1,26 @@
+<!-- <template>
+    <lightning-card title="Delete Records deleteAccount1" icon-name="utility:user">
+        {status}
+        <c-delete-child records={accounts}  oncallpasstoparent={passToParent}></c-delete-child>        
+       
+    </lightning-card>
+</template> -->
+
+
+<template>
+    <lightning-card title="Pagination demo contact" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <template if:true={visibleContacts}>
+                <template for:each={visibleContacts} for:item="contact">
+                    <p key={contact.Id}>{contact.Name}</p>
+                </template>
+            </template>
+            <div slot="footer" class="slds-var-m-vertical_medium">
+                <c-delete-child records={totalContacts} onupdate={updateContactHandler}>
+                </c-delete-child>
+            </div>
+        </div>
+    </lightning-card>
+
+
+</template>

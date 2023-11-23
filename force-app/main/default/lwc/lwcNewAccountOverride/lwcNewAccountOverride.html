@@ -1,0 +1,22 @@
+<!-- lwcNewAccountOverride.html -->
+<template>
+    <lightning-record-edit-form object-api-name="Account" onsuccess={handleAccountCreated}>
+        <lightning-input-field field-name="Name"
+                               value={dfv_AccountName}>
+        </lightning-input-field>
+        <lightning-input-field field-name="NumberOfEmployees"
+                               value={dfv_NumberOfEmployees}>
+        </lightning-input-field>
+        <lightning-input-field field-name="OwnerId"
+                               value={dfv_OwnerId}>
+        </lightning-input-field>
+        <lightning-input-field field-name="CustomCheckbox__c"
+                               value={dfv_CustomCheckbox}>
+        </lightning-input-field>
+
+        <lightning-button class="slds-m-top_small"
+                          type="submit"
+                          label="Create">
+        </lightning-button>
+    </lightning-record-edit-form>
+</template>

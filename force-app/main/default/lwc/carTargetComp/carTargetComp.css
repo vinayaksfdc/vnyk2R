@@ -1,0 +1,10 @@
+.drop-zone {
+    background: rgb(243, 242, 242);
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    height:300px;
+    width:300px;
+}

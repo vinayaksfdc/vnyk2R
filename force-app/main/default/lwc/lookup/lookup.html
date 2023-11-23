@@ -1,0 +1,232 @@
+<!--
+  @File Name          : lookup.html
+  @Description        : Taken from https://github.com/pozil/sfdc-ui-lookup-lwc
+  @Author             : Sasank Subrahmanyam V
+  @Group              : 
+  @Last Modified By   : Vimal K
+  @Last Modified On   : 3/19/2020, 12:25:35 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    1/20/2020   Sasank Subrahmanyam V     Initial Version
+  1.1    3/19/2020   Vimal K                   Scroll Issue on Lookup
+-->
+<template>
+    <div class="slds-form-element">
+        <label if:true={label} class="slds-form-element__label" for="combobox">{label}</label>
+        <div class="slds-form-element__control">
+            <div class={getContainerClass}>
+                <div
+                     class={getDropdownClass}
+                     aria-expanded={hasSearchResults}
+                     aria-haspopup="listbox"
+                     role="combobox">
+                    <!-- Search input start -->
+                    <div class={getComboboxClass} role="none" onkeypress={handleKeypress}>
+                        <template if:false={isMultiEntry}>
+                            <lightning-icon
+                                            icon-name={getSelectIconName}
+                                            size="small"
+                                            alternative-text="Selected item icon"
+                                            class={getSelectIconClass}>
+                            </lightning-icon>
+                        </template>
+
+                        <!-- Text input -->
+                        <input type="text"
+                               class={getInputClass}
+                               aria-autocomplete="list"
+                               aria-controls="listbox"
+                               autocomplete="off"
+                               role="textbox"
+                               id="combobox"
+                               placeholder={placeholder}
+                               value={getInputValue}
+                               title={getInputTitle}
+                               readonly={isInputReadonly}
+                               onfocus={handleFocus}
+                               onblur={handleBlur}
+                               oninput={handleInput}
+                               disabled={disabled} />
+
+                        <!-- Search icon -->
+                        <lightning-icon
+                                        icon-name="utility:search"
+                                        size="x-small"
+                                        alternative-text="Search icon"
+                                        class={getSearchIconClass}></lightning-icon>
+
+                        <!-- Clear selection button icon for single entry lookups -->
+                        <template if:true={showCloseButton}>
+                            <div if:true={loading}
+                                 class="slds-input__icon-group slds-input__icon-group_right slds-m-right_xx-small">
+                                <div role="status"
+                                     class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
+                                    <span class="slds-assistive-text">Loading</span>
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </div>
+                            <button title="Remove selected option"
+                                    type="button"
+                                    onclick={handleClearSelection}
+                                    class={getClearSelectionButtonClass}>
+                                <lightning-icon icon-name="utility:close"
+                                                size="x-small"
+                                                alternative-text="Remove selected option"
+                                                class="slds-button__icon"></lightning-icon>
+                            </button>
+                        </template>
+                    </div>
+                    <!-- Search input end -->
+
+                    <!-- Result list box start -->
+                    <div id="listbox"
+                         role="listbox"
+                         onclick={handleComboboxClick} onmousedown={handleMouseDown}>
+                        <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-dropdown_length-with-icon-5"
+                            role="presentation">
+
+                            <!-- RECENT RESULTS -->
+                            <li if:false={searchEnabled} role="presentation" class="slds-listbox__item">
+                                <span class="slds-media slds-listbox__option_entity" role="option">
+                                    <span class="slds-media__body">
+                                        RECENT RECORDS
+                                    </span>
+                                </span>
+                            </li>
+                            <template for:each={recentResults}
+                                      for:item="result"
+                                      if:false={searchEnabled}>
+                                <li key={result.id}
+                                    role="presentation"
+                                    class="slds-listbox__item">
+                                    <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                          role="option"
+                                          onclick={handleResultClick}
+                                          data-recordid={result.id}>
+                                        <span class="slds-media__figure">
+                                            <lightning-icon
+                                                            icon-name={result.iconName}
+                                                            size="small"
+                                                            alternative-text="Result item icon"></lightning-icon>
+                                        </span>
+                                        <span class="slds-media__body">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                                {result.title}
+                                            </span>
+                                            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                                                {result.subtitle}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </li>
+                            </template>
+
+                            <!-- Display if results are present -->
+                            <li role="presentation" if:true={searchEnabled}>
+                                <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                      role="option"
+                                      onclick={openAdvancedSearch}>
+                                    <span class="slds-media__figure">
+                                        <lightning-icon icon-name="utility:search"
+                                                        size="small"
+                                                        alternative-text="Search">
+                                        </lightning-icon>
+                                    </span>
+                                    <span class="slds-media__body">
+                                        <span
+                                              class="slds-listbox__option-text slds-listbox__option-text_entity">{advancedSearchLinkText}</span>
+                                    </span>
+                                </span>
+                            </li>
+
+                            <template for:each={searchResults}
+                                      for:item="result"
+                                      if:true={hasSearchResults}>
+                                <li
+                                    key={result.id}
+                                    role="presentation"
+                                    class="slds-listbox__item">
+                                    <span
+                                          class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                          role="option"
+                                          onclick={handleResultClick}
+                                          data-recordid={result.id}>
+                                        <span class="slds-media__figure">
+                                            <lightning-icon
+                                                            icon-name={result.iconName}
+                                                            size="small"
+                                                            alternative-text="Result item icon"></lightning-icon>
+                                        </span>
+                                        <span class="slds-media__body">
+                                            <span
+                                                  class="slds-listbox__option-text slds-listbox__option-text_entity">{result.title}</span>
+                                            <span
+                                                  class="slds-listbox__option-meta slds-listbox__option-meta_entity">{result.subtitle}</span>
+                                        </span>
+                                    </span>
+                                </li>
+                            </template>
+                            <!-- Display that there are no results -->
+                            <template if:true={userMessage}>
+                                <li role="presentation" class="slds-listbox__item">
+                                    <span class="slds-media slds-listbox__option_entity" role="option">
+                                        <span class="slds-media__body">
+                                            {userMessage}
+                                        </span>
+                                    </span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <!-- Result list box end -->
+                </div>
+            </div>
+
+            <!-- Multi-selection start -->
+            <template if:true={isMultiEntry}>
+                <div
+                     id="selection"
+                     role="listbox"
+                     aria-orientation="horizontal">
+                    <ul
+                        class="slds-listbox slds-listbox_inline slds-p-top_xxx-small"
+                        role="group"
+                        aria-label="Selected Options:">
+                        <template for:each={selection} for:item="item">
+                            <li
+                                key={item.id}
+                                role="presentation"
+                                class="slds-listbox__item">
+                                <lightning-pill
+                                                label={item.title}
+                                                title={item.title}
+                                                onremove={handleRemoveSelectedItem}
+                                                name={item.id}>
+                                    <lightning-icon
+                                                    icon-name={item.iconName}></lightning-icon>
+                                </lightning-pill>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+            <!-- Multi-selection end -->
+
+            <!-- Errors start -->
+            <template for:each={errors} for:item="error">
+                <label
+                       key={error.id}
+                       role="alert"
+                       class="slds-form-element__label slds-m-top_xx-small form-error">{error.message}</label>
+            </template>
+            <!-- Errors end -->
+        </div>
+    </div>
+    <template if:false={hideAdvanceSearch}>
+        <c-lookup-advance-search config={advanceSearchConfig}
+                                 search-fields={searchFields}
+                                 onlinkevent={handleAdvanceSelection}>
+        </c-lookup-advance-search>
+    </template>
+</template>

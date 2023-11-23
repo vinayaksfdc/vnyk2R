@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Customer Component">
+        <lightning-layout>
+            <div class="slds-m-bottom_medium">
+                    <lightning-card title="getRecord Demo" icon-name="standard:user">
+                        <div class="slds-m-around_medium">
+                                Recordid customer Details     {recordId}
+                                <template if:true={lead.data}>
+    
+                                        <div class="slds-m-around_medium">
+                                                <p>{prospect}</p>
+                                               
+                                            <p>{CUSTOMERID}</p>
+                                            <p>{PREFERREDMETHOD}</p>
+                                             
+                
+                                            <p>
+                                                <lightning-formatted-phone value={PREFERREDMETHOD}></lightning-formatted-phone>
+                                            </p>
+                                            <p>
+                                                <lightning-formatted-email value={CUSTEMAIL}></lightning-formatted-email>
+                                            </p>
+                                        </div>
+
+                                        
+                                    </template>
+                        </div>
+                    </lightning-card>
+                </div>
+        </lightning-layout>
+    </lightning-card>
+</template>

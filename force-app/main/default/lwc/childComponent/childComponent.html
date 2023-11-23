@@ -1,0 +1,12 @@
+<template>
+    <lightning-combobox name="progress" label="Status in Child" value={value} placeholder="Select Progress"
+            options={options} onchange={handleChange} >
+    </lightning-combobox>
+
+    <hr></hr>
+    The value from Parent is {valueFromParent}
+
+    <hr></hr>
+    <c-grand-child-component value-from-child={value}></c-grand-child-component>
+    
+</template>

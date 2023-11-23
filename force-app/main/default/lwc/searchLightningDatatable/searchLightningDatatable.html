@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Filters">
+        <lightning-input type="search" label="Search" onchange={updateSearch}>
+        </lightning-input>
+
+        
+        <lightning-datatable 
+        columns={columns}
+        data={data}
+        key-field="index">
+    </lightning-datatable>
+    </lightning-card>
+</template>

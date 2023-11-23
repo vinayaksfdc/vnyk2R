@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="ForLoop JS" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={someValues} for:item="contact" for:index="index">
+                <li key={contact}>
+                   {contact}   
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

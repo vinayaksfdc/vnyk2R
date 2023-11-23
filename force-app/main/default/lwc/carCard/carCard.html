@@ -1,0 +1,37 @@
+<template>
+    <header class="slds-text-align_center slds-text-heading_small">Drop a car tile</header>
+    <lightning-card title="Lightning Message Service (LMS) in LWC Subscriber" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            {publisherMessage}
+        </div>
+    </lightning-card>
+        <div class="content">
+            <div
+            class="drop-zone slds-drop-zone slds-p-around_x-small slds-align_absolute-center"
+            ondrop={handleDrop}
+            ondragover={handleDragOver}
+            >
+                <template if:true={areDetailsVisible}> 
+                              <img src={carDrag.Picture__c} class="car slds-align_absolute-center" alt="Car Picture" >
+                    <div>
+                        <p class="title slds-align_absolute-center">
+                            {carDrag.SNo}
+                            <lightning-badge label={carDrag.carId}></lightning-badge>
+                            <lightning-badge label={carDrag.Make__c}></lightning-badge>
+                        </p>
+                    </div>
+                </template>    
+            </div>        
+        </div>
+</template>
+<!--                       
+                            <template if:true={areDetailsVisible}> 
+                                <img src={carDrag.Picture__c} class="car slds-align_absolute-center" alt="Car Picture" >
+                                                        <div>
+                                                            <p class="title slds-align_absolute-center">
+                                                                {carDrag.SNo}
+                                                                <lightning-badge label={carDrag.carId}></lightning-badge>
+                                                                <lightning-badge label={carDrag.Make__c}></lightning-badge>
+                                                            </p>
+                                                        </div>
+                            </template>    -->

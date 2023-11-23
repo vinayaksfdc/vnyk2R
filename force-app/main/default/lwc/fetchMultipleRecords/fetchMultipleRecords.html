@@ -1,0 +1,69 @@
+<template>
+       <lightning-card title="Fetch Contacts Records" icon-name="custom:custom14" class="ht">
+              <ul class="slds-m-around_medium">
+                     <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                                   <lightning-tile label="Lightning component team" href="/path/to/somewhere">
+                                          <p class="slds-truncate" title="Account Lists">Account Lists</p>
+                                          </lightning-tile>
+                     </h2>
+
+                     <lightning-tile label="Salesforce UX" href="/path/to/somewhere">       
+                            <template for:each={Contacts} for:item="account" for:index="index">
+                                   <li key={account.Id}>
+                                                 <!-- Simple -->
+                                          <ul >
+                                                 <li class="slds-item">
+                                                 
+                                                        <div class="slds-p-around_medium lgc-bg">
+                                                        <lightning-button-icon  class="icnleft slds-float_right"  access-key={index} id={index} onclick={closecard} data-id={account.Id}
+                                                        icon-name="utility:close"  size="medium"  variant="bare"   
+                                                        slot="actions">   </lightning-button-icon>  <br/> 
+                                                        <dl class="slds-dl_horizontal">
+                                                                      <dt class="slds-dl_horizontal__label" style="width: 300px;">
+                                                                      <p style="width: 300px;"  title="Name">Name:<a onclick={handleClickView} data-id={account.Id}>{account.Name}&nbsp;{account.LastName}</a></p>
+                                                               </dt>
+                                                               <dd class="slds-dl_horizontal__detail slds-tile__meta" style="width: 300px;">
+                                                                      <p   title="Phone" style="width: 300px;">Phone:{account.FirstName}</p>
+                                                               </dd>
+                                                               <dt class="slds-dl_horizontal__label" style="width: 300px;">
+                                                                      <p  title="Industry" style="width: 300px;">Industry:{account.LastName}</p>
+                                                               </dt>
+                                                               <dd class="slds-dl_horizontal__detail slds-tile__meta" style="width: 300px;">
+                                                                      <p title="Rating" style="width: 300px;">Rating:{account.Email}</p>
+                                                               </dd>
+                                                               </dl>
+                                                        </div>
+                                                 </li>
+                                          </ul>
+                                           
+                                   </li>
+                            </template>
+                     </lightning-tile>
+              </ul>
+       </lightning-card>
+</template>
+
+
+ 
+
+<!-- <template>
+       <lightning-card title="Account Records"> 
+            <template for:each={accounts} for:item="acc">
+                     <div class="slds-p-around_small lgc-bg" key={acc.Id}>
+                            <div>
+                                   <div class="slds-p-around_medium  slds-float_right">
+                                                 <lightning-button-icon  class="topright slds-float_right" onclick={handleIconClick} data-id={acc.Id}
+                                                 icon-name="utility:close"  size="medium"  variant="bare"   
+                                                 slot="actions"></lightning-button-icon>
+                                    </div>
+                                   <div class="slds-tile__detail">
+                                          <p class="toDohead">Name:{acc.Name}</p>
+                                          <p class="toDohead">Phone:{acc.Phone}</p>
+                                          <p class="toDohead">Industry:{acc.Industry}</p></p>
+                                          <p class="toDohead">Rating:{acc.Rating}</p>
+                                   </div>
+                            </div>         
+                     </div>
+              </template>
+       </lightning-card>
+</template> -->

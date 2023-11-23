@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="For Each Directive Demo" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={cities} for:item="citiname" for:index="index">
+                <li key={citiname.Id}>
+                    <b style="color:cornflowerblue">{citiname.Name}</b>
+
+                    <lightning-icon icon-name="action:delete"  access-key={index} id={index} alternative-text="Click to Call" size="small" title="large size" onclick={removeRow}>
+                    </lightning-icon>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Data From Wrapper Class" icon-name="custom:custom11">
+      <div class='specific'>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Account Name">Account Name</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Parent Account">Contacts Related With Account</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Parent Account">Contacts Count</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={data} for:item="keyValue">
+                <tr key={keyValue.accRecord.Id}>
+                    <th scope="col">
+                        <div>{keyValue.accRecord.Name}</div>
+                    </th>
+                    <th scope="col">
+                    <template for:each={keyValue.contactList} for:item="con">
+                        <div key={con.Id}>{con.Name} &nbsp;&nbsp;&nbsp; {con.Email}</div>
+                    </template>
+                </th>
+                <th scope="col">
+                    <div>{keyValue.contactCount}</div>
+                </th>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+  </div>
+    </lightning-card>
+</template>

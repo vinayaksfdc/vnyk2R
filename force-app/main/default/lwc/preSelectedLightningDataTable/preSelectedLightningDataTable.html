@@ -1,0 +1,16 @@
+<template>  
+    <lightning-card title="Account Records">  
+      <div class="slds-box">  
+        <lightning-datatable selected-rows={preSelectedRows}  
+        data={accList} columns={cols} key-field="Id">  
+        </lightning-datatable>  
+      </div>  
+
+      <lightning-button variant="brand" label="Submit" onclick={handleSync}>
+    </lightning-button>
+
+ 
+  
+
+    </lightning-card>  
+  </template>

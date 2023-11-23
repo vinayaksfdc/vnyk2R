@@ -1,0 +1,10 @@
+<template>
+    <template if:true={contacts}>
+        <template for:each={contacts} for:item="contact">
+            <p key={contact.Id}>{contact.Name}</p>
+        </template>
+    </template>
+
+
+    <lightning-button label="onSpreadOperator" onchange={onSpreadOperator}></lightning-button>
+</template>

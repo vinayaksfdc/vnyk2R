@@ -1,0 +1,8 @@
+<template>
+    <lightning-button label="Button 1" onclick={buttonClicked} data-id="button1"></lightning-button>
+    <lightning-button label="Button 2" onclick={buttonClicked} data-id="button2"></lightning-button>
+
+    <template if:true={showInfo}>
+        <lightning-input name="input1" class='input1'></lightning-input>
+    </template>
+</template>

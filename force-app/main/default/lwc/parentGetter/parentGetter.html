@@ -1,0 +1,15 @@
+<template>
+    <div onclick={handleClick} class="listing">
+        <div>
+            Click to increment.updated<br>
+            Expected: parent and child values update<br>
+            {counter}
+        </div>
+        <br>
+        <div>Parent changingGetter: {changingGetter}</div>
+        <div>Parent changingVar: {changingVar}</div>
+        <br>
+        <c-child-getter item-name={changingGetter}></c-child-getter>
+        <c-child-getter item-name={changingVar}></c-child-getter>
+    </div>
+</template>

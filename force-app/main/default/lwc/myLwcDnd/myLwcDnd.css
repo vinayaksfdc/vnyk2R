@@ -1,0 +1,26 @@
+.container-drag{
+    width: 20%;
+    height: 380px;
+    background: burlywood;
+    margin: auto;
+    padding: 10px;
+}
+
+.container {
+    width: 80%;
+    height: 400px;
+    background: white;
+    margin: auto;
+    padding: 10px;
+}
+.left {
+    width: 20%;
+    height: 380px;
+    background: #6295E1;
+    float: left;
+}
+.right {
+    margin-left: 80%;
+    height: 380px;
+    background: aqua;
+}

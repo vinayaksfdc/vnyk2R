@@ -1,0 +1,21 @@
+<!--
+  @File Name          : dataTableLink.html
+  @Description        : 
+  @Author             : Sasank Subrahmanyam V
+  @Group              : 
+  @Last Modified By   : Sasank Subrahmanyam V
+  @Last Modified On   : 10/16/2019, 3:12:30 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    10/16/2019   Sasank Subrahmanyam V     Initial Version
+-->
+<template>
+    <div class={style}>
+        <a data-id={wrap} onclick={handleClick}>
+            <template if:true={favorite}>
+                &#11088;
+            </template>
+            {label}
+        </a>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Custom validation in Lightning Web Component" icon-name="standard:contact">
+        <div class="slds-var-p-around_small">
+            <lightning-input class="nameCls" label="Enter Name" type="text" required></lightning-input>
+            <lightning-input class="emailCls" label="Enter Email" type="email" required></lightning-input>
+            <lightning-input class="dateCls" label="Enter Date" type="date" required></lightning-input><br/><br/>
+            <lightning-button class="slds-align_absolute-center" label="Validate" variant="brand"
+                onclick={handleValidation}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

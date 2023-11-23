@@ -1,0 +1,17 @@
+<template>
+<div>Account Card</div>
+<lightning-card title="Account Card" icon-name="custom:custom63">
+    <div class="slds-m-around_medium">
+        <template if:true={acc}>
+            <div class="slds-m-around_medium">
+             
+                <p>{acc.Customer_Id__c}</p>
+                <p>{acc.Email__c}</p>
+                <p>{acc.Phone}</p>
+                <p>{acc.Email}</p>
+            </div>
+        </template>
+
+    </div>
+</lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+        <lightning-card title="Erros List" icon-name="custom:custom3">
+            <div class="slds-m-around_medium">
+                <template if:true={errorList}>
+                    <ul>
+                        <template for:each={errorList} for:item='objError'>
+                            <li key={objError.Id}>
+                                <a id={objError.Id} type={objError.type} class="slds-text-link_reset"></a>
+                                <lightning-icon icon-name="utility:jump_to_bottom" size="xx-small" class="slds-p-right_small" alternative-text={objError.error}></lightning-icon>
+                                {objError.error}
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
